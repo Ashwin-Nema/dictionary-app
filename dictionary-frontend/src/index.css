@@ -1,0 +1,50 @@
+.purplebackground {
+  background-color: #622449 !important;
+}
+
+body{
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.transparentbackground {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.smalltext {
+  font-size: small;
+}
+
+.texttranfformnone {
+  text-transform: none !important;
+}
+
+.fixedfloatingicon {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
+
+.modalwithoutcolor {
+  background-color: transparent;
+  border: none;
+}
+
+.modalinput{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.modalinput:hover{
+  cursor: pointer
+}
+
+.border-none {
+  border: none;
+}
+
+.closeeditingbutton:hover {
+  cursor: pointer;
+}
