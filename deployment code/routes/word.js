@@ -63,7 +63,7 @@ word_router.post("/:searchingword", async (req, res) => {
         const wordInDatabase = await WordModel.find({ name: wordToSearch })
         const wordNotPresent = wordInDatabase.length == 0
         let newwordAdded = null
-        if (wordNotPresent) {
+        if (wordNotPresent) { 
             newwordAdded = await AddNewWordToDataBaseFromOxfordApi(wordToSearch)
         }
         res.json({ data, newwordAdded })
