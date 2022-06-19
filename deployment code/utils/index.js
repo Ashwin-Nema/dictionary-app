@@ -1,14 +1,21 @@
 require('dotenv').config()
 const { OXFORDKEY, OXFORDKEYSECRET } = process.env
 const WordModel = require('../models/word')
-const oxford = require('oxford-dictionaries-api');
+const axios = require('axios')
 
-const oxforddictionaries = new oxford(OXFORDKEY, OXFORDKEYSECRET);
+ const axiosinstance = axios.create({
+    baseURL:'https://od-api.oxforddictionaries.com/api/v2/entries/en-gb'
+})
+
+
+ const config = {
+headers:{'app_id':OXFORDKEY, 'app_key':OXFORDKEYSECRET, 'Content-Type': 'application/json'}
+}
 
 async function AddNewWordToDataBaseFromOxfordApi(word) {
     let wordAddedData = null
-    const wordData = await oxforddictionaries.entries({ word_id: word })
-    const { results } = wordData
+    const requestdata = await axiosinstance.get(`/${word}`, config)
+    const { results } = requestdata.data
     const categories = []
     if (Array.isArray(results)) {
         for (let i = 0; i < results.length; i++) {
@@ -98,4 +105,5 @@ async function AddNewWordToDataBaseFromOxfordApi(word) {
     return wordAddedData
 }
 
-module.exports = { AddNewWordToDataBaseFromOxfordApi }
+
+module.exports = { AddNewWordToDataBaseFromOxfordApi, axiosinstance, config }

@@ -51,7 +51,9 @@ word_router.post("/add", async (req, res) => {
         res.status(404).send("Sorry something went wrong")
     }
 })
-word_router.post("/:searchingword", async (req, res) => {
+
+word_router.post("/searchingword/:searchingword", async (req, res) => {
+    console.log("Coming here")
     try {
         let wordToSearch = req.params.searchingword
 
@@ -69,6 +71,7 @@ word_router.post("/:searchingword", async (req, res) => {
         res.json({ data, newwordAdded })
     } catch (error) {
         console.log(error)
+        console.log("dfdf")
         res.status(404).send("Sorry something went wrong")
     }
 })

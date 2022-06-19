@@ -65,7 +65,7 @@ word_router.post("/:searchingword", async (req, res) => {
         let newwordAdded = null
         if (wordNotPresent) { 
             newwordAdded = await AddNewWordToDataBaseFromOxfordApi(wordToSearch)
-        }
+        } 
         res.json({ data, newwordAdded })
     } catch (error) {
         console.log(error)

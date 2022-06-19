@@ -16,7 +16,6 @@ app.use(
 )
 
 
-
 app.use('/graphql', graphqlHTTP({
     schema: graphqlSchema
 }))

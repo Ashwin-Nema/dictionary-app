@@ -3,7 +3,7 @@ import { BASEURL } from '../config'
 export const setData = (data) => ({ type: setDataActiontype, payload: data })
 
 export const setDataForASearch = (word) => (dispatch) => {
-    return fetch(`${BASEURL}/word/${word}`, {method:'POST'}).then((res) => res.json()).then(data => {
+    return fetch(`${BASEURL}/word/searchingword/${word}`, {method:'POST'}).then((res) => res.json()).then(data => {
         const { data: existingWordsInDatabase, newwordAdded } = data
 
         const newWordsList = existingWordsInDatabase.map((item) => {
